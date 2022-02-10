@@ -1,0 +1,24 @@
+{
+    "editor.fontSize": 18,
+    "editor.fontWeight": "500",
+    "editor.fontFamily": "Source Code Pro",
+    "debug.console.fontFamily": "Source Code Pro",
+    "debug.console.fontSize": 18,
+    "terminal.integrated.fontSize": 18,
+    "terminal.integrated.fontWeight": "600",
+    "window.zoomLevel": 1,
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+          "source": "PowerShell",
+          "icon": "terminal-powershell",
+          "args": ["-ExecutionPolicy", "Bypass"]
+        }
+      },
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    },
+    
+}
