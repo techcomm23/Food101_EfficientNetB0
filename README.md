@@ -1,7 +1,7 @@
 
-# Food-101 paper through EfficientNet lens
+# DeepFood paper through EfficientNet lens
 
-![Food-101](food-101.jpg)
+![DeepFood](food-101.jpg)
 
 ## Intro
 
@@ -11,16 +11,38 @@ EfficientNet (Hongkun Yu et al) is a model scaling method that uses a highly eff
 
 Food-101 is a dataset that consists of 101 food categories with 750 training and 250 test images per category. 
 
-In "Food-101 – Mining Discriminative Components with Random Forests" [paper](https://data.vision.ee.ethz.ch/cvl/datasets_extra/food-101/static/bossard_eccv14_food-101.pdf), the authors(Lukas Bossard et al) used RF architecture to train a model to achieve an average accuracy of 50.76%. We will use this paper as a baseline to evaluate the performance of EfficientNet-B0 Architecture
+In "DeepFood" [paper](https://arxiv.org/ftp/arxiv/papers/1606/1606.05675.pdf), the authors(Chang Liu et al) trained a CNN based model to achieve a "Top-1 accuracy" of 77.4%. We will use this paper as a baseline to evaluate the performance of EfficientNet-B0 Architecture
+
+---
+## Goal
+In the DeepFood paper, authors developed an algorithm that was able to achieved a "Top-1 accuracy" of 77.4%. We need to explore the impact of utilizing EfficientNet to train our model. We will build a model using EfficientNet. Then we will evaluate different metrics to compare the performance of EfficientNet vs the model proposed in DeepFood paper.
 
 ---
 ## Tasks
+* [x] **TFDS datasets**:
+Instead of using Food-101 dataset from source, we will utilize TensorFlow Datasets (TFDS) API to load the dataset. We will explore the features and labels. Then we will analyze and visualize samples from the dataset. 
+
+* [x] **Building TF input pipeline**:
+We will use tf.data API to build our input pipeline. 
+
+* [x] **Mixed precision**:
+We will enable mixed precision. Although it’s not supported in this case, we will benefit from memory utilization improvements because we’ve changed the policy to "mixed_float16". We’ll explore layers that was impacted by this policy change.
 
 * [x] **Transfer Learning**:
-In the Food-101 paper, authors achieved an average accuracy of 50.76% using RF model. We need to explore the impact of utilizing EfficientNet to train our model. First, we'll use EfficientNet to build a feature extraction model. Then we will fine-tune this model. Finally, we will evaluate the created model to compare its performance to the model used in Food-101 paper.
+First, we'll use EfficientNet to build a feature extraction model. Then we will build a fine-tuned model. Since we have sufficient number of images (750 images) per class, our fine-tuning strategy will be to unfreeze the whole base model. Then we’ll train both the head and baseline using food-101 dataset.
 
-* [x] **TFDS datasets**:
-Instead of using Food-101 dataset from source, we will utilize TensorFlow Datasets (TFDS) API to load the data set. TFDS offers high performance input pipelines and includes a catalog of large collection of datasets. 
+ * [x] **Evaluation- Tensorboard**:
+#ToDo
+
+* [x] **Evaluation- Confusion Matrix**:
+#ToDo
+
+* [x] **Evaluation- F1 Scores**:
+#ToDo
+
+---
+## Results
+#ToDo
 
 ---
 ## License
