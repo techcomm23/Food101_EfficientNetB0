@@ -32,17 +32,30 @@ We will enable mixed precision. Although it’s not supported in this case, we w
 First, we'll use EfficientNet to build a feature extraction model. Then we will build a fine-tuned model. Since we have sufficient number of images (750 images) per class, our fine-tuning strategy will be to unfreeze the whole base model. Then we’ll train both the head and baseline using food-101 dataset.
 
  * [x] **Evaluation- Tensorboard**:
-#ToDo
+To use Tensorboard to visualize accuracy plot to compare feature extraction vs fine-tuning models 
 
 * [x] **Evaluation- Confusion Matrix**:
-#ToDo
+To plot confusion matrix
 
 * [x] **Evaluation- F1 Scores**:
-#ToDo
+To plot F1 scores for different classes
 
 ---
 ## Results
-#ToDo
+
+### Tensorboard
+![Tensorboard](tensorboard.png)
+
+Our model exceeded the accuracy of DeepFood paper (80.16% vs 77.4%). However, the accuracy plot shows that our fine-tuning model is suffering from some over-fitting. This indicates that the model can achieve better results by: optimizing hyperparameters, using regularization/dropout and other optimization techniques. 
+
+### Confusion Matrix
+![Confusion Matrix](confusion_matrix.png)
+
+### F1 Scores
+![F1 Scores](F1_scores.png)
+F1 score is the harmonic mean of the precision and recall. It combines them into a single metric. We choose F1 score metric here because it’s a good “overall” metric for our classification model. This is true in this case because we are not trying to measure model performance against only false positives or false negatives.
+
+
 
 ---
 ## License
