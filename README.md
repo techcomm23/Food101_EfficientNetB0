@@ -29,10 +29,10 @@ We will use tf.data API to build our input pipeline.
 We will enable mixed precision. Although it’s not supported in this case, we will benefit from memory utilization improvements because we’ve changed the policy to "mixed_float16". We’ll explore layers that was impacted by this policy change.
 
 * [x] **Transfer Learning**:
-First, we'll use EfficientNet to build a feature extraction model. Then we will build a fine-tuned model. Since we have sufficient number of images (750 images) per class, our fine-tuning strategy will be to unfreeze the whole base model. Then we’ll train both the head and baseline using food-101 dataset.
+First, we'll use EfficientNet to build a feature extraction model. Then we will build a fine-tuning model. Since we have sufficient number of images (750 images) per class, our fine-tuning strategy will be to unfreeze the whole base model. Then we’ll train both the head and baseline using food-101 dataset.
 
  * [x] **Evaluation- Tensorboard**:
-To use Tensorboard to visualize accuracy plot to compare feature extraction vs fine-tuning models 
+To use Tensorboard to visualize accuracy plot to compare feature extraction vs fine-tuning models
 
 * [x] **Evaluation- Confusion Matrix**:
 To plot confusion matrix
@@ -50,12 +50,11 @@ Our model exceeded the accuracy of DeepFood paper (80.16% vs 77.4%). However, th
 
 ### Confusion Matrix
 ![Confusion Matrix](confusion_matrix.png)
+The above confusion matrix will give us insight into which classes our model is getting most "confused" on. We can see that our model is mainly confused between images like: steak and filet_mignon, apple_pie and bibimpab...etc. These are very similar classes and even human can be confused by these images. We can help minimize this problem by providing our model more images from these classes or apply more augmentation. 
 
 ### F1 Scores
 ![F1 Scores](F1_scores.png)
-F1 score is the harmonic mean of the precision and recall. It combines them into a single metric. We choose F1 score metric here because it’s a good “overall” metric for our classification model. This is true in this case because we are not trying to measure model performance against only false positives or false negatives.
-
-
+F1 score is the harmonic mean of the precision and recall. It combines them into a single metric. Selecting appropriate metric will depend on the problem we are trying to deal with. Since we are currently not focusing on false positives or false negatives, we will use F1 score metric because it’s a good “overall” metric for our classification model. Using above plot will be easier to use to troubleshoot problematic classes than using confusion matrix shown previously. 
 
 ---
 ## License
